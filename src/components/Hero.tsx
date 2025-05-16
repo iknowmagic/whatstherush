@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import Image from "next/image";
 import { useScroll, motion, useTransform } from "@/components/Motion";
 
 const Hero: React.FC = () => {
@@ -50,13 +51,16 @@ const Hero: React.FC = () => {
           style={{ scale: earthScale }}
           className="relative w-[80vh] max-w-[500px] h-[80vh] max-h-[500px]"
         >
-          <img
-            src="/images/earth-poster.jpg"
+          <Image
+            src="/images/earth.png"
             alt="Earth"
+            fill
             className="w-full h-full object-contain"
             style={{
               filter: "brightness(0.85) contrast(1.2)",
             }}
+            sizes="(max-width: 500px) 100vw, 500px"
+            priority
           />
         </motion.div>
       </motion.div>
