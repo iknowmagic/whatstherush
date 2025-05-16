@@ -109,7 +109,7 @@ export default function RootLayout({
         <link rel="manifest" href="/site.webmanifest" />
         <StructuredData />
       </head>
-      <body>{children}</body>
+      <body suppressHydrationWarning={true}>{children}</body>
     </html>
   );
 }
