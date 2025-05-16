@@ -1,4 +1,5 @@
 @import "tailwindcss";
+
 @plugin "daisyui";
 @plugin "daisyui/theme" {
   name: "myTheme";
@@ -89,6 +90,21 @@ body {
   font-family: var(--font-serif);
 }
 
+/* Text shadow for better readability */
+.text-shadow-sm {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.text-shadow {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.text-shadow-lg {
+  text-shadow:
+    0 4px 8px rgba(0, 0, 0, 0.6),
+    0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
 /* Retro-futurist border styles */
 .retro-border {
   border: 2px solid #bf9d5e;
@@ -130,4 +146,9 @@ body {
   background-blend-mode: overlay;
   opacity: 0.15;
   pointer-events: none;
+}
+
+/* Add a utility class for radial gradients */
+.bg-gradient-radial {
+  background-image: radial-gradient(var(--tw-gradient-stops));
 }

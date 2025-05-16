@@ -75,12 +75,20 @@ const Hero: React.FC = () => {
         }}
       />
 
-      {/* Vignette effect */}
-      <div className="z-20 absolute inset-0 bg-radial-gradient-to-transparent from-[#172625]/60 to-transparent" />
+      {/* Semi-transparent backdrop for text */}
+      <div className="z-25 absolute inset-0 flex justify-center items-center">
+        <div className="absolute inset-0 bg-gradient-radial from-transparent via-[#172625]/60 to-[#172625]/80"></div>
+      </div>
 
       {/* Content */}
       <div className="z-30 relative flex flex-col justify-center items-center px-4 h-full text-center">
-        <motion.div className="relative" style={{ y: textY }}>
+        <motion.div
+          className="relative"
+          style={{ y: textY }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.2 }}
+        >
           {/* Decorative stars */}
           <motion.div
             className="-top-12 -left-8 absolute text-[#BF9D5E] text-2xl"
@@ -101,9 +109,9 @@ const Hero: React.FC = () => {
             ★
           </motion.div>
 
-          {/* Main title */}
+          {/* Main title with text shadow for better readability */}
           <motion.h1
-            className="font-['Anton'] text-[#F2DCB3] text-6xl md:text-8xl lg:text-9xl leading-tight tracking-wide"
+            className="text-shadow-lg font-['Anton'] text-[#F2DCB3] text-6xl md:text-8xl lg:text-9xl leading-tight tracking-wide"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -132,7 +140,7 @@ const Hero: React.FC = () => {
         </motion.div>
 
         <motion.button
-          className="hover:bg-[#2C7373] mt-16 px-8 py-3 retro-border border-[#BF9D5E] border-2 font-['Anton'] text-[#F2DCB3] tracking-wide transition-colors duration-300"
+          className="z-50 relative hover:bg-[#2C7373] mt-12 lg:mt-16 px-8 py-3 retro-border border-[#BF9D5E] border-2 font-['Anton'] text-[#F2DCB3] tracking-wide transition-colors duration-300"
           onClick={scrollToNext}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}

@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     siteName: "What's The Rush",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/images/og_image.png",
         width: 1200,
         height: 630,
         alt: "What's The Rush Logo",
@@ -63,7 +63,7 @@ export const metadata: Metadata = {
     title: "What's The Rush?",
     description: "A humane alternative to accelerationist tech culture",
     creator: "@whatstherush",
-    images: ["/twitter-image.jpg"],
+    images: ["/images/twitter_image.jpg"],
   },
   robots: {
     index: true,

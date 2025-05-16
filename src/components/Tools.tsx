@@ -18,8 +18,8 @@ const ToolCard: React.FC<ToolCardProps> = ({
 }) => {
   return (
     <motion.div
-      className={`bg-[#F2DCB3] border-2 border-[#BF9D5E] p-6 md:p-8 relative ${
-        comingSoon ? "opacity-80" : ""
+      className={`bg-[#F2DCB3] border-2 border-[#BF9D5E]/70 p-6 md:p-8 relative ${
+        comingSoon ? "opacity-90" : ""
       }`}
       whileHover={{ y: -5, boxShadow: "0 10px 20px rgba(0,0,0,0.1)" }}
       transition={{ duration: 0.3 }}
@@ -29,16 +29,23 @@ const ToolCard: React.FC<ToolCardProps> = ({
         <div className="-top-3 -right-3 absolute text-[#BF9D5E] text-xl">★</div>
       )}
 
-      <div className="mb-4 text-[#172625] text-3xl">{icon}</div>
-      <h3 className="mb-3 font-['Anton'] text-[#172625] text-xl md:text-2xl">
+      <div className="flex justify-center items-center mb-4 h-12 text-[#172625] text-3xl">
+        {icon}
+      </div>
+
+      <h3 className="mb-3 font-['Anton'] text-[#172625] text-xl md:text-2xl text-center">
         {title}
       </h3>
-      <p className="font-['Inter'] text-[#172625]/80 text-sm md:text-base">
+
+      <p className="font-['Inter'] text-[#172625]/80 text-sm md:text-base text-center">
         {description}
       </p>
+
       {comingSoon && (
-        <div className="inline-block bg-[#868C54]/20 mt-4 px-3 py-1 border border-[#868C54]/30 font-['Inter'] font-medium text-[#868C54] text-xs">
-          COMING SOON
+        <div className="flex justify-center mt-4">
+          <div className="inline-block bg-[#868C54]/20 px-3 py-1 border border-[#868C54]/30 font-['Inter'] font-medium text-[#868C54] text-xs">
+            COMING SOON
+          </div>
         </div>
       )}
     </motion.div>
@@ -116,24 +123,18 @@ const Tools: React.FC = () => {
       <div className="right-8 bottom-8 absolute text-[#F2DCB3] text-xl">★</div>
 
       <div className="z-10 relative mx-auto px-4 md:px-8 container">
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true, amount: 0.1 }}
-          transition={{ duration: 0.8 }}
-          className="inline-block relative mx-auto mb-16 w-auto"
-        >
+        <div className="mb-12 text-center">
           <motion.h2
-            className="relative font-['Anton'] text-[#F2DCB3] text-4xl md:text-5xl text-center"
+            className="inline-block relative font-['Anton'] text-[#F2DCB3] text-4xl md:text-5xl"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.1 }}
             transition={{ duration: 0.6 }}
           >
             THE TOOLS
+            <div className="right-0 -bottom-2 left-0 absolute bg-[#BF9D5E] h-1"></div>
           </motion.h2>
-          <div className="right-0 -bottom-2 left-0 absolute bg-[#BF9D5E] h-1"></div>
-        </motion.div>
+        </div>
 
         <motion.div
           className="gap-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4"
@@ -150,7 +151,7 @@ const Tools: React.FC = () => {
         </motion.div>
 
         <motion.div
-          className="mx-auto mt-16 p-6 border-[#F2DCB3]/20 border-2 max-w-2xl font-['Inter'] text-[#F2DCB3] text-center"
+          className="mx-auto mt-16 p-6 border-[#F2DCB3]/30 border-2 max-w-2xl font-['Inter'] text-[#F2DCB3] text-center"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true, amount: 0.1 }}

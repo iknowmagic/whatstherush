@@ -34,7 +34,7 @@ const Manifesto: React.FC = () => {
         className="absolute inset-0 bg-cover bg-center pointer-events-none"
         style={{
           backgroundImage: 'url("/images/vintage-texture.png")',
-          opacity: 0.1,
+          opacity: 0.15,
           mixBlendMode: "overlay",
         }}
       />
@@ -45,9 +45,9 @@ const Manifesto: React.FC = () => {
       <div className="bottom-8 left-8 absolute text-[#BF9D5E] text-xl">★</div>
       <div className="right-8 bottom-8 absolute text-[#BF9D5E] text-xl">★</div>
 
-      <div className="z-10 mx-auto max-w-4xl">
+      <div className="z-10 mx-auto w-full max-w-4xl">
         <motion.div
-          className="relative p-8 md:p-12 retro-border text-center"
+          className="relative mx-4 md:mx-8 p-10 md:p-16 retro-border text-center"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -68,7 +68,7 @@ const Manifesto: React.FC = () => {
 
             <motion.div
               variants={itemVariants}
-              className="relative flex flex-col space-y-8 my-16"
+              className="relative flex flex-col space-y-10 my-16"
             >
               {/* Decorative stars */}
               <div className="top-8 -left-4 absolute text-[#2C7373] text-sm">
