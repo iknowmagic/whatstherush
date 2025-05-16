@@ -1,3 +1,49 @@
+# What's The Rush
+
+## About this Project
+
+This is a Next.js project that presents an alternative philosophy to accelerationism in tech culture. The app promotes more sustainable, ethical, and humane approaches to technology development and use.
+
+### Project Structure
+
+- `src/app` - Next.js App Router structure
+- `src/components` - React components including:
+  - `Hero.tsx` - Landing section with parallax scroll effects
+  - `Manifesto.tsx` - Project philosophy statement
+  - `Tools.tsx` - Practical tools and approaches
+  - `Join.tsx` - Newsletter/community signup form
+  - `Footer.tsx` - Site footer with navigation
+  - `Motion.tsx` - Wrapper for framer-motion animations
+
+### Technical Details
+
+- **Framework**: Next.js 15 with App Router
+- **Styling**: Tailwind CSS v4
+- **Animations**: Framer Motion
+- **Fonts**: Next.js optimized fonts (Inter, Spectral, Anton)
+- **State Management**: React useState/useEffect hooks
+- **Code Quality**: ESLint, Prettier
+
+### Key Concepts
+
+The app challenges accelerationist tech culture, advocating for technology that:
+
+- Prioritizes sustainability over rapid growth
+- Values human wellbeing over technological progress
+- Encourages thoughtful deployment rather than rushing to market
+- Respects planetary limits and ecological boundaries
+
+### Development Commands
+
+- `pnpm dev` - Run development server
+- `pnpm build` - Build for production
+- `pnpm start` - Start production server
+- `pnpm lint` - Run ESLint
+
+## Note to GitHub Copilot
+
+This project uses Tailwind v4 with the `@import "tailwindcss"` syntax in globals.css. The project follows a philosophy of "humane technology" and is structured as a landing page with sections explaining an anti-accelerationist approach to technology. The Motion.tsx component serves as a wrapper for framer-motion to fix Next.js client component issues with "export \*" syntax.
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
