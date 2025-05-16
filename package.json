@@ -6,7 +6,11 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "branch": "zsh scripts/newbranch.zsh",
+    "snap": "zsh scripts/snapshot.zsh",
+    "minor": "npm version minor",
+    "major": "npm version major"
   },
   "dependencies": {
     "next": "15.3.2",
