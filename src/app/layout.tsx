@@ -1,5 +1,4 @@
-import { Inter, Spectral } from "next/font/google";
-import localFont from "next/font/local";
+import { Inter, Spectral, Anton } from "next/font/google";
 import "./globals.css";
 import type { Metadata, Viewport } from "next";
 import StructuredData from "@/components/StructuredData";
@@ -19,23 +18,13 @@ const spectral = Spectral({
   weight: ["300", "400", "500"],
 });
 
-// For Anton, either use Google Fonts or load as local font
-const anton = localFont({
-  src: "../fonts/Anton-Regular.woff2", // Ensure you have this file
+// Use Google Fonts for Anton
+const anton = Anton({
+  subsets: ["latin"],
   variable: "--font-anton",
+  weight: "400",
   display: "swap",
 });
-
-// Or use Google Fonts for Anton too:
-/*
-import { Anton } from 'next/font/google';
-const anton = Anton({
-  subsets: ['latin'],
-  variable: '--font-anton',
-  weight: '400',
-  display: 'swap',
-});
-*/
 
 export const metadata: Metadata = {
   title: "What's The Rush? | A Humane Alternative to Accelerationism",
