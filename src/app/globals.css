@@ -1,9 +1,53 @@
 @import "tailwindcss";
 @plugin "daisyui";
+@plugin "daisyui/theme" {
+  name: "myTheme";
+  default: true; /* set as default */
+  prefersdark: false; /* set as default dark mode (prefers-color-scheme:dark) */
+  color-scheme: dark; /* color of browser-provided UI */
+
+  /* Color palette from requirements */
+  --color-primary: #2c7373;
+  --color-primary-content: #f2dcb3;
+  --color-secondary: #868c54;
+  --color-secondary-content: #f2dcb3;
+  --color-accent: #bf9d5e;
+  --color-accent-content: #172625;
+  --color-base-100: #f2dcb3;
+  --color-base-200: #ebd29e;
+  --color-base-300: #e1c686;
+  --color-base-content: #172625;
+  --color-neutral: #172625;
+  --color-neutral-content: #f2dcb3;
+  --color-info: #2c7373;
+  --color-info-content: #f2dcb3;
+  --color-success: #868c54;
+  --color-success-content: #f2dcb3;
+  --color-warning: #bf9d5e;
+  --color-warning-content: #172625;
+  --color-error: #a33028;
+  --color-error-content: #f2dcb3;
+
+  /* Border radius */
+  --radius-selector: 0;
+  --radius-field: 0;
+  --radius-box: 0;
+
+  /* Base sizes */
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+
+  /* Border size */
+  --border: 2px;
+
+  /* Effects */
+  --depth: 0;
+  --noise: 0.2;
+}
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #172625;
+  --foreground: #f2dcb3;
 }
 
 @theme inline {
@@ -16,8 +60,8 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #172625;
+    --foreground: #f2dcb3;
   }
 }
 
@@ -25,6 +69,11 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
+  /* Add retro texture overlay */
+  background-image:
+    url("/images/noise-texture.png"),
+    linear-gradient(to bottom, rgba(23, 38, 37, 0.95), rgba(23, 38, 37, 0.95));
+  background-blend-mode: overlay;
 }
 
 /* Custom font utility classes */
@@ -38,4 +87,47 @@ body {
 
 .font-spectral {
   font-family: var(--font-serif);
+}
+
+/* Retro-futurist border styles */
+.retro-border {
+  border: 2px solid #bf9d5e;
+  position: relative;
+}
+
+.retro-border::before {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border: 1px solid rgba(191, 157, 94, 0.3);
+  pointer-events: none;
+}
+
+/* Star accents for decorative elements */
+.star-accent {
+  position: relative;
+}
+
+.star-accent::before {
+  content: "★";
+  position: absolute;
+  font-size: 1rem;
+  color: #bf9d5e;
+  top: -0.5rem;
+  left: -0.5rem;
+}
+
+/* Vintage poster texture */
+.vintage-texture {
+  position: relative;
+}
+
+.vintage-texture::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("/images/vintage-texture.png");
+  background-blend-mode: overlay;
+  opacity: 0.15;
+  pointer-events: none;
 }

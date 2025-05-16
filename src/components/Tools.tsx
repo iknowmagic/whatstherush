@@ -18,10 +18,17 @@ const ToolCard: React.FC<ToolCardProps> = ({
 }) => {
   return (
     <motion.div
-      className={`bg-[#F2DCB3] p-6 md:p-8 ${comingSoon ? "opacity-70" : ""}`}
-      whileHover={{ y: -5 }}
+      className={`bg-[#F2DCB3] border-2 border-[#BF9D5E] p-6 md:p-8 relative ${
+        comingSoon ? "opacity-80" : ""
+      }`}
+      whileHover={{ y: -5, boxShadow: "0 10px 20px rgba(0,0,0,0.1)" }}
       transition={{ duration: 0.3 }}
     >
+      {/* Star accent in corner */}
+      {!comingSoon && (
+        <div className="-top-3 -right-3 absolute text-[#BF9D5E] text-xl">★</div>
+      )}
+
       <div className="mb-4 text-[#172625] text-3xl">{icon}</div>
       <h3 className="mb-3 font-['Anton'] text-[#172625] text-xl md:text-2xl">
         {title}
@@ -30,7 +37,7 @@ const ToolCard: React.FC<ToolCardProps> = ({
         {description}
       </p>
       {comingSoon && (
-        <div className="inline-block bg-[#868C54]/20 mt-4 px-3 py-1 font-['Inter'] font-medium text-[#868C54] text-xs">
+        <div className="inline-block bg-[#868C54]/20 mt-4 px-3 py-1 border border-[#868C54]/30 font-['Inter'] font-medium text-[#868C54] text-xs">
           COMING SOON
         </div>
       )}
@@ -91,17 +98,42 @@ const Tools: React.FC = () => {
   };
 
   return (
-    <section className="bg-[#868C54] py-20 w-full">
-      <div className="mx-auto px-4 md:px-8 container">
-        <motion.h2
-          className="mb-16 font-['Anton'] text-[#F2DCB3] text-4xl md:text-5xl text-center"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+    <section className="relative bg-[#868C54] py-20 w-full">
+      {/* Vintage texture overlay */}
+      <div
+        className="absolute inset-0 bg-cover bg-center pointer-events-none"
+        style={{
+          backgroundImage: 'url("/images/vintage-texture.png")',
+          opacity: 0.1,
+          mixBlendMode: "overlay",
+        }}
+      />
+
+      {/* Corner stars decoration */}
+      <div className="top-8 left-8 absolute text-[#F2DCB3] text-xl">★</div>
+      <div className="top-8 right-8 absolute text-[#F2DCB3] text-xl">★</div>
+      <div className="bottom-8 left-8 absolute text-[#F2DCB3] text-xl">★</div>
+      <div className="right-8 bottom-8 absolute text-[#F2DCB3] text-xl">★</div>
+
+      <div className="z-10 relative mx-auto px-4 md:px-8 container">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           viewport={{ once: true, amount: 0.1 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.8 }}
+          className="inline-block relative mx-auto mb-16 w-auto"
         >
-          THE TOOLS
-        </motion.h2>
+          <motion.h2
+            className="relative font-['Anton'] text-[#F2DCB3] text-4xl md:text-5xl text-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.1 }}
+            transition={{ duration: 0.6 }}
+          >
+            THE TOOLS
+          </motion.h2>
+          <div className="right-0 -bottom-2 left-0 absolute bg-[#BF9D5E] h-1"></div>
+        </motion.div>
 
         <motion.div
           className="gap-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4"
@@ -118,7 +150,7 @@ const Tools: React.FC = () => {
         </motion.div>
 
         <motion.div
-          className="mx-auto mt-16 max-w-2xl font-['Inter'] text-[#F2DCB3]/90 text-center"
+          className="mx-auto mt-16 p-6 border-[#F2DCB3]/20 border-2 max-w-2xl font-['Inter'] text-[#F2DCB3] text-center"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true, amount: 0.1 }}

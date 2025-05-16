@@ -1,5 +1,4 @@
 import { Inter, Spectral, Anton } from "next/font/google";
-import { Bebas_Neue } from "next/font/google";
 import "./globals.css";
 import type { Metadata, Viewport } from "next";
 import StructuredData from "@/components/StructuredData";
@@ -19,20 +18,12 @@ const spectral = Spectral({
   weight: ["300", "400", "500"],
 });
 
-// Use Google Fonts for Anton
+// Use Google Fonts for Anton (display font for headings)
 const anton = Anton({
   subsets: ["latin"],
   variable: "--font-anton",
   weight: "400",
   display: "swap",
-});
-
-// Use Google Fonts for Bebas Neue
-const bebasNeue = Bebas_Neue({
-  weight: ["400"],
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-bebas-neue",
 });
 
 export const metadata: Metadata = {
@@ -119,9 +110,7 @@ export default function RootLayout({
         <link rel="manifest" href="/site.webmanifest" />
         <StructuredData />
       </head>
-      <body suppressHydrationWarning={true} className={bebasNeue.variable}>
-        {children}
-      </body>
+      <body suppressHydrationWarning={true}>{children}</body>
     </html>
   );
 }

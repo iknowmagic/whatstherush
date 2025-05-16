@@ -27,21 +27,38 @@ const Manifesto: React.FC = () => {
   return (
     <section
       id="manifesto"
-      className="flex flex-col justify-center items-center bg-[#F2DCB3] px-4 py-24 w-full min-h-screen"
+      className="relative flex flex-col justify-center items-center bg-[#F2DCB3] px-4 py-24 w-full min-h-screen"
     >
-      <div className="mx-auto max-w-4xl">
+      {/* Vintage texture overlay */}
+      <div
+        className="absolute inset-0 bg-cover bg-center pointer-events-none"
+        style={{
+          backgroundImage: 'url("/images/vintage-texture.png")',
+          opacity: 0.1,
+          mixBlendMode: "overlay",
+        }}
+      />
+
+      {/* Corner stars decoration */}
+      <div className="top-8 left-8 absolute text-[#BF9D5E] text-xl">★</div>
+      <div className="top-8 right-8 absolute text-[#BF9D5E] text-xl">★</div>
+      <div className="bottom-8 left-8 absolute text-[#BF9D5E] text-xl">★</div>
+      <div className="right-8 bottom-8 absolute text-[#BF9D5E] text-xl">★</div>
+
+      <div className="z-10 mx-auto max-w-4xl">
         <motion.div
-          className="text-center"
+          className="relative p-8 md:p-12 retro-border text-center"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
         >
           <motion.h2
-            className="mb-12 font-['Anton'] text-[#172625] text-4xl md:text-5xl"
+            className="inline-block relative mb-12 font-['Anton'] text-[#172625] text-4xl md:text-5xl"
             variants={itemVariants}
           >
-            MANIFESTO
+            <span className="z-10 relative">MANIFESTO</span>
+            <div className="right-0 -bottom-2 left-0 z-0 absolute bg-[#BF9D5E] h-1"></div>
           </motion.h2>
 
           <div className="space-y-8 font-['Spectral'] text-[#172625] text-xl md:text-2xl lg:text-3xl leading-relaxed">
@@ -51,8 +68,19 @@ const Manifesto: React.FC = () => {
 
             <motion.div
               variants={itemVariants}
-              className="flex flex-col space-y-6 my-12"
+              className="relative flex flex-col space-y-8 my-16"
             >
+              {/* Decorative stars */}
+              <div className="top-8 -left-4 absolute text-[#2C7373] text-sm">
+                ★
+              </div>
+              <div className="top-20 -right-4 absolute text-[#2C7373] text-sm">
+                ★
+              </div>
+              <div className="bottom-8 -left-4 absolute text-[#2C7373] text-sm">
+                ★
+              </div>
+
               <p className="font-light">
                 <span className="font-medium text-[#2C7373]">
                   Sustainability
@@ -71,10 +99,16 @@ const Manifesto: React.FC = () => {
 
             <motion.p
               variants={itemVariants}
-              className="mt-12 text-[#868C54] text-lg md:text-xl italic"
+              className="inline-block relative mx-auto mt-12 text-[#868C54] text-lg md:text-xl italic"
             >
-              &quot;The greatest threat to our planet is the belief that someone else
-              will save it.&quot;
+              <span className="-top-2 -left-6 absolute text-[#868C54] text-xl">
+                ❝
+              </span>
+              The greatest threat to our planet is the belief that someone else
+              will save it.
+              <span className="-right-6 -bottom-2 absolute text-[#868C54] text-xl">
+                ❞
+              </span>
             </motion.p>
           </div>
         </motion.div>
