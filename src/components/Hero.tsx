@@ -8,6 +8,8 @@ const Hero: React.FC = () => {
   const [mounted, setMounted] = useState(false);
   const { scrollY } = useScroll();
 
+  const [theme, setTheme] = useState<string>("whatstherush");
+
   // Enhanced parallax effect values
   const starsY = useTransform(scrollY, [0, 600], [0, 20]);
   const grainY = useTransform(scrollY, [0, 600], [0, 40]);
@@ -19,6 +21,9 @@ const Hero: React.FC = () => {
   // Handle client-side mounting for Next.js
   useEffect(() => {
     setMounted(true);
+    const html = document.documentElement;
+    const currentTheme = html.getAttribute("data-theme") || "whatstherush";
+    setTheme(currentTheme);
   }, []);
 
   const scrollToNext = () => {
@@ -31,12 +36,15 @@ const Hero: React.FC = () => {
   if (!mounted) return null;
 
   return (
-    <section className="relative flex flex-col justify-start items-center bg-poster w-full h-screen overflow-hidden">
+    <section
+      className="relative flex flex-col justify-start items-center bg-poster w-full h-screen overflow-hidden"
+      id="hero"
+    >
       {/* Stars background layer */}
       <motion.div
         className="z-0 absolute inset-0 bg-cover bg-center"
         style={{
-          backgroundImage: 'url("/images/stars-bg.png")',
+          backgroundImage: `url(${theme === "whatstherushDay" ? "/images/day/clouds-bg.png" : "/images/night/stars-bg.png"})`,
           y: starsY,
           opacity: 0.6,
         }}
@@ -46,7 +54,7 @@ const Hero: React.FC = () => {
       <motion.div
         className="z-5 absolute inset-0 bg-cover bg-center pointer-events-none"
         style={{
-          backgroundImage: 'url("/images/vintage-texture.png")',
+          backgroundImage: `url(${theme === "whatstherushDay" ? "/images/day/vintage-texture.png" : "/images/night/vintage-texture.png"})`,
           mixBlendMode: "overlay",
           opacity: 0.2,
           y: grainY,
@@ -85,7 +93,11 @@ const Hero: React.FC = () => {
             className="relative w-[min(60vh,500px)] h-[min(60vh,500px)]"
           >
             <Image
-              src="/images/earth.png"
+              src={
+                theme === "whatstherushDay"
+                  ? "/images/day/earth-day.png"
+                  : "/images/night/earth.png"
+              }
               alt="Earth"
               fill
               className="w-full h-full object-contain"

@@ -18,10 +18,11 @@
   }
 }
 
+/* Default dark theme */
 @plugin "daisyui/theme" {
-  name: "myTheme";
+  name: "whatstherush";
   default: true;
-  prefersdark: false;
+  prefersdark: true;
   color-scheme: dark;
 
   /* Color palette */
@@ -36,13 +37,50 @@
   --color-base-200: #ebd29e; /* lighter beige */
   --color-base-300: #e1c686; /* darker beige */
   --color-base-content: #172625; /* almost black */
+
+  /* Add neutral colors to match the accent in footer */
+  --color-neutral: #172625; /* almost black */
+  --color-neutral-content: #f2dcb3; /* soft beige */
+}
+
+/* Light theme alternative */
+@plugin "daisyui/theme" {
+  name: "whatstherushDay";
+  prefersdark: false;
+  color-scheme: light;
+
+  --color-base-100: #fdf6e3;
+  --color-base-200: #f5e6c8;
+  --color-base-300: #e5d1a5;
+  --color-base-content: #3e2e1e;
+
+  --color-primary: #91b6d2;
+  --color-primary-content: #1f1f1f;
+
+  --color-secondary: #9dad6f;
+  --color-secondary-content: #212121;
+
+  --color-accent: #d88c4a;
+  --color-accent-content: #fff5e1;
+
+  --color-neutral: #857c6f;
+  --color-neutral-content: #2d2d2d;
 }
 
 /* Poster-style base bg */
 .bg-poster {
   background-color: #0f1c22;
   background-image:
-    url("/images/stars-bg.png"), url("/images/vintage-texture.png");
+    url("/images/night/stars-bg.png"), url("/images/night/vintage-texture.png");
+  background-size: cover, cover;
+  background-blend-mode: overlay;
+}
+
+/* Light theme background override */
+html[data-theme="whatstherushDay"] .bg-poster {
+  background-color: #eae4d1;
+  background-image:
+    url("/images/day/clouds-bg.png"), url("/images/day/vintage-texture.png");
   background-size: cover, cover;
   background-blend-mode: overlay;
 }

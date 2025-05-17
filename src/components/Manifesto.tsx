@@ -1,9 +1,17 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "@/components/Motion";
 
 const Manifesto: React.FC = () => {
+  const [theme, setTheme] = useState("whatstherush");
+
+  useEffect(() => {
+    const current =
+      document.documentElement.getAttribute("data-theme") || "whatstherush";
+    setTheme(current);
+  }, []);
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -27,13 +35,17 @@ const Manifesto: React.FC = () => {
   return (
     <section
       id="manifesto"
-      className="relative flex flex-col justify-center items-center bg-base-100 px-4 py-24 w-full min-h-screen"
+      className="relative flex flex-col justify-center items-center bg-poster px-4 py-24 w-full min-h-screen"
     >
       {/* Vintage texture overlay */}
       <div
         className="absolute inset-0 bg-cover bg-center pointer-events-none"
         style={{
-          backgroundImage: 'url("/images/vintage-texture.png")',
+          backgroundImage: `url(${
+            theme === "whatstherushDay"
+              ? "/images/day/vintage-texture.png"
+              : "/images/night/vintage-texture.png"
+          })`,
           opacity: 0.15,
           mixBlendMode: "overlay",
         }}
