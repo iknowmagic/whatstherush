@@ -62,13 +62,12 @@ const Hero: React.FC = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.2 }}
         >
-          <div className="font-display lg:text-[8rem] 2xl:text-[10rem] xl:text-[9rem] text-base-100 text-5xl sm:text-6xl md:text-7xl leading-none tracking-wide">
-            WHAT&apos;S THE F*CKING RUSH?
-          </div>
-
-          <div className="mt-3 md:mt-4 text-center">
-            <p className="font-body font-bold text-sm text-base-100 md:text-lg uppercase tracking-wider">
-              A Humane Alternative to Accelerationism
+          <div className="flex flex-col justify-center items-center hero-content">
+            <h1 className="font-display lg:text-[8rem] 2xl:text-[10rem] xl:text-[9rem] text-base-100 text-5xl sm:text-6xl md:text-7xl leading-none tracking-wide">
+              WHAT&apos;S THE F*CKING RUSH?
+            </h1>
+            <p className="mt-4 font-body text-sm text-base-100 md:text-lg uppercase tracking-wider">
+              Technology in Earth Time
             </p>
           </div>
         </motion.div>
@@ -100,7 +99,7 @@ const Hero: React.FC = () => {
         </motion.div>
 
         <motion.button
-          className="hover:bg-primary/30 mb-8 px-10 py-4 border-2 border-accent font-display text-base-100 text-xl tracking-wide transition-colors duration-300"
+          className="mb-8 px-10 py-4 btn-outline font-display text-xl tracking-wide btn btn-accent"
           onClick={scrollToNext}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}

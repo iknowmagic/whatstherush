@@ -2,12 +2,14 @@ import React from "react";
 import Hero from "@/components/Hero";
 import Manifesto from "@/components/Manifesto";
 import Tools from "@/components/Tools";
+import Header from "@/components/Header";
 // import Join from "@/components/Join";
 import Footer from "@/components/Footer";
 
 const Home: React.FC = () => {
   return (
     <main className="antialiased">
+      <Header />
       <Hero />
       <Manifesto />
       <Tools />
