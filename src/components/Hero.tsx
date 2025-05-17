@@ -9,9 +9,12 @@ const Hero: React.FC = () => {
   const { scrollY } = useScroll();
 
   // Enhanced parallax effect values
-  const y = useTransform(scrollY, [0, 600], [0, 100]);
-  const earthScale = useTransform(scrollY, [0, 300], [1, 1.08]);
+  const starsY = useTransform(scrollY, [0, 600], [0, 20]);
+  const grainY = useTransform(scrollY, [0, 600], [0, 40]);
+  const earthY = useTransform(scrollY, [0, 600], [0, 80]);
+  const titleY = useTransform(scrollY, [0, 600], [0, 120]);
   const opacity = useTransform(scrollY, [0, 300], [1, 0]);
+  const earthScale = useTransform(scrollY, [0, 300], [1, 1.08]);
 
   // Handle client-side mounting for Next.js
   useEffect(() => {
@@ -28,42 +31,41 @@ const Hero: React.FC = () => {
   if (!mounted) return null;
 
   return (
-    <section className="relative flex flex-col justify-start items-center bg-neutral w-full h-screen overflow-hidden">
-      {/* Stars background layer - static */}
-      <div className="z-0 absolute inset-0">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: 'url("/images/stars-bg.png")',
-            opacity: 0.7,
-          }}
-        />
-      </div>
+    <section className="relative flex flex-col justify-start items-center bg-poster w-full h-screen overflow-hidden">
+      {/* Stars background layer */}
+      <motion.div
+        className="z-0 absolute inset-0 bg-cover bg-center"
+        style={{
+          backgroundImage: 'url("/images/stars-bg.png")',
+          y: starsY,
+          opacity: 0.6,
+        }}
+      />
 
-      {/* Vintage overlay texture */}
-      <div
+      {/* Vintage texture overlay */}
+      <motion.div
         className="z-5 absolute inset-0 bg-cover bg-center pointer-events-none"
         style={{
           backgroundImage: 'url("/images/vintage-texture.png")',
-          opacity: 0.2,
           mixBlendMode: "overlay",
+          opacity: 0.2,
+          y: grainY,
         }}
       />
 
       <div className="z-10 relative flex flex-col justify-between items-center mx-auto px-4 py-16 h-full container">
-        {/* Title Section - Simplified Approach */}
+        {/* Title Section */}
         <motion.div
           className="mx-auto max-w-5xl text-center"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
+          style={{ y: titleY }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 0.2 }}
         >
-          {/* Title - Two sizes smaller */}
           <div className="font-display lg:text-[8rem] 2xl:text-[10rem] xl:text-[9rem] text-base-100 text-5xl sm:text-6xl md:text-7xl leading-none tracking-wide">
             WHAT&apos;S THE F*CKING RUSH?
           </div>
 
-          {/* Tagline - Two sizes bigger */}
           <div className="mt-3 md:mt-4 text-center">
             <p className="font-body font-bold text-sm text-base-100 md:text-lg uppercase tracking-wider">
               A Humane Alternative to Accelerationism
@@ -71,7 +73,7 @@ const Hero: React.FC = () => {
           </div>
         </motion.div>
 
-        {/* Earth Image - Centered */}
+        {/* Earth Image */}
         <motion.div
           className="relative flex flex-grow justify-center items-center"
           style={{ opacity }}
@@ -80,7 +82,7 @@ const Hero: React.FC = () => {
           transition={{ duration: 1.2, delay: 0.7 }}
         >
           <motion.div
-            style={{ y, scale: earthScale }}
+            style={{ y: earthY, scale: earthScale }}
             className="relative w-[min(60vh,500px)] h-[min(60vh,500px)]"
           >
             <Image
@@ -97,7 +99,6 @@ const Hero: React.FC = () => {
           </motion.div>
         </motion.div>
 
-        {/* Explore Button - Centered at bottom */}
         <motion.button
           className="hover:bg-primary/30 mb-8 px-10 py-4 border-2 border-accent font-display text-base-100 text-xl tracking-wide transition-colors duration-300"
           onClick={scrollToNext}

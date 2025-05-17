@@ -1,6 +1,23 @@
 @import "tailwindcss";
 
 @plugin "daisyui";
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: url("/images/grain-animation.webm") repeat;
+    mix-blend-mode: overlay;
+    opacity: 0.06;
+    z-index: 0;
+    pointer-events: none;
+  }
+}
+
 @plugin "daisyui/theme" {
   name: "myTheme";
   default: true;
@@ -19,35 +36,24 @@
   --color-base-200: #ebd29e; /* lighter beige */
   --color-base-300: #e1c686; /* darker beige */
   --color-base-content: #172625; /* almost black */
-
-  --color-neutral: #172625; /* almost black */
-  --color-neutral-content: #f2dcb3; /* soft beige */
-
-  --color-info: #2c7373; /* deep teal */
-  --color-info-content: #f2dcb3; /* soft beige */
-  --color-success: #868c54; /* sage green */
-  --color-success-content: #f2dcb3; /* soft beige */
-  --color-warning: #bf9d5e; /* earthy gold */
-  --color-warning-content: #172625; /* almost black */
-  --color-error: #a33028; /* red */
-  --color-error-content: #f2dcb3; /* soft beige */
-
-  /* Border radius */
-  --radius-selector: 0;
-  --radius-field: 0;
-  --radius-box: 0;
-
-  /* Base sizes */
-  --size-selector: 0.25rem;
-  --size-field: 0.25rem;
-
-  /* Border size */
-  --border: 2px;
-
-  /* Effects */
-  --depth: 0;
-  --noise: 0.2;
 }
+
+/* Poster-style base bg */
+.bg-poster {
+  background-color: #0f1c22;
+  background-image:
+    url("/images/stars-bg.png"), url("/images/vintage-texture.png");
+  background-size: cover, cover;
+  background-blend-mode: overlay;
+}
+
+/* Daisy border radius overrides */
+:root {
+  --rounded-box: 2rem;
+  --rounded-btn: 2rem;
+}
+
+/* Existing classes remain unchanged */
 
 :root {
   --background: #172625;
