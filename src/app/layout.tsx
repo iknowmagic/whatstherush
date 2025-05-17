@@ -1,27 +1,20 @@
-import { Inter, Spectral, Anton } from "next/font/google";
+import { Nunito } from "next/font/google";
+import { Changa_One } from "next/font/google";
 import "./globals.css";
 import type { Metadata, Viewport } from "next";
 import StructuredData from "@/components/StructuredData";
 
 // Font configurations
-const inter = Inter({
+const nunito = Nunito({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-nunito",
   display: "swap",
-  weight: ["300", "400", "500", "600"],
+  weight: ["300", "400", "500", "600", "700"],
 });
 
-const spectral = Spectral({
+const changaOne = Changa_One({
   subsets: ["latin"],
-  variable: "--font-spectral",
-  display: "swap",
-  weight: ["300", "400", "500"],
-});
-
-// Use Google Fonts for Anton (display font for headings)
-const anton = Anton({
-  subsets: ["latin"],
-  variable: "--font-anton",
+  variable: "--font-changa",
   weight: "400",
   display: "swap",
 });
@@ -85,7 +78,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${spectral.variable} ${anton.variable}`}
+      className={`${nunito.variable} ${changaOne.variable}`}
       data-theme="myTheme"
     >
       <head>

@@ -9,11 +9,9 @@ const Hero: React.FC = () => {
   const { scrollY } = useScroll();
 
   // Enhanced parallax effect values
-  const y = useTransform(scrollY, [0, 600], [0, 180]);
-  const earthScale = useTransform(scrollY, [0, 300], [1, 1.1]);
+  const y = useTransform(scrollY, [0, 600], [0, 100]);
+  const earthScale = useTransform(scrollY, [0, 300], [1, 1.08]);
   const opacity = useTransform(scrollY, [0, 300], [1, 0]);
-  const textY = useTransform(scrollY, [0, 300], [0, -50]);
-  const starOpacity = useTransform(scrollY, [0, 200], [1, 0.3]);
 
   // Handle client-side mounting for Next.js
   useEffect(() => {
@@ -30,126 +28,98 @@ const Hero: React.FC = () => {
   if (!mounted) return null;
 
   return (
-    <section className="relative bg-[#172625] w-full h-screen overflow-hidden text-white">
+    <section className="relative flex flex-col justify-start items-center bg-neutral w-full h-screen overflow-hidden">
       {/* Stars background layer - static */}
       <div className="z-0 absolute inset-0">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
             backgroundImage: 'url("/images/stars-bg.png")',
-            opacity: 0.6,
+            opacity: 0.7,
           }}
         />
       </div>
 
-      {/* Parallax earth */}
-      <motion.div
-        className="z-10 absolute inset-0 flex justify-center items-center"
-        style={{ y, opacity }}
-      >
-        <motion.div
-          style={{ scale: earthScale }}
-          className="relative w-[80vh] max-w-[500px] h-[80vh] max-h-[500px]"
-        >
-          <Image
-            src="/images/earth.png"
-            alt="Earth"
-            fill
-            className="w-full h-full object-contain"
-            style={{
-              filter: "brightness(0.85) contrast(1.2)",
-            }}
-            sizes="(max-width: 500px) 100vw, 500px"
-            priority
-          />
-        </motion.div>
-      </motion.div>
-
       {/* Vintage overlay texture */}
       <div
-        className="z-20 absolute inset-0 bg-cover bg-center pointer-events-none"
+        className="z-5 absolute inset-0 bg-cover bg-center pointer-events-none"
         style={{
           backgroundImage: 'url("/images/vintage-texture.png")',
-          opacity: 0.15,
+          opacity: 0.2,
           mixBlendMode: "overlay",
         }}
       />
 
-      {/* Semi-transparent backdrop for text */}
-      <div className="z-25 absolute inset-0 flex justify-center items-center">
-        <div className="absolute inset-0 bg-gradient-radial from-transparent via-[#172625]/60 to-[#172625]/80"></div>
-      </div>
-
-      {/* Content */}
-      <div className="z-30 relative flex flex-col justify-center items-center px-4 h-full text-center">
+      <div className="z-10 relative flex flex-col justify-between items-center mx-auto px-4 py-16 h-full container">
+        {/* Title Section - Simplified Approach */}
         <motion.div
-          className="relative"
-          style={{ y: textY }}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1.2 }}
+          className="mx-auto max-w-5xl text-center"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
         >
-          {/* Decorative stars */}
-          <motion.div
-            className="-top-12 -left-8 absolute text-[#BF9D5E] text-2xl"
-            style={{ opacity: starOpacity }}
-            initial={{ opacity: 0, scale: 0 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 1.0, duration: 0.5 }}
-          >
-            ★
-          </motion.div>
-          <motion.div
-            className="-top-6 -right-10 absolute text-[#BF9D5E] text-lg"
-            style={{ opacity: starOpacity }}
-            initial={{ opacity: 0, scale: 0 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 1.2, duration: 0.5 }}
-          >
-            ★
-          </motion.div>
+          {/* Title - Two sizes smaller */}
+          <div className="font-display lg:text-[8rem] 2xl:text-[10rem] xl:text-[9rem] text-base-100 text-5xl sm:text-6xl md:text-7xl leading-none tracking-wide">
+            WHAT&apos;S THE F*CKING RUSH?
+          </div>
 
-          {/* Main title with text shadow for better readability */}
-          <motion.h1
-            className="text-shadow-lg font-['Anton'] text-[#F2DCB3] text-6xl md:text-8xl lg:text-9xl leading-tight tracking-wide"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            WHAT&#39;S THE
-            <br className="md:hidden" />
-            <span className="inline-block relative">
-              F
-              <span className="top-1/2 left-1/2 absolute text-[#F2DCB3] -translate-x-1/2 -translate-y-1/2 transform">
-                *
-              </span>
-              CKING
-            </span>
-            <br />
-            RUSH?
-          </motion.h1>
-
-          <motion.p
-            className="mt-6 max-w-2xl font-['Inter'] text-[#BF9D5E] text-xl md:text-2xl"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-          >
-            A humane alternative to accelerationism.
-          </motion.p>
+          {/* Tagline - Two sizes bigger */}
+          <div className="mt-3 md:mt-4 text-center">
+            <p className="font-body font-bold text-sm text-base-100 md:text-lg uppercase tracking-wider">
+              A Humane Alternative to Accelerationism
+            </p>
+          </div>
         </motion.div>
 
+        {/* Earth Image - Centered */}
+        <motion.div
+          className="relative flex flex-grow justify-center items-center"
+          style={{ opacity }}
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1.2, delay: 0.7 }}
+        >
+          <motion.div
+            style={{ y, scale: earthScale }}
+            className="relative w-[min(60vh,500px)] h-[min(60vh,500px)]"
+          >
+            <Image
+              src="/images/earth.png"
+              alt="Earth"
+              fill
+              className="w-full h-full object-contain"
+              style={{
+                filter: "brightness(1.05) contrast(1.1)",
+              }}
+              sizes="(max-width: 768px) 90vw, 500px"
+              priority
+            />
+          </motion.div>
+        </motion.div>
+
+        {/* Explore Button - Centered at bottom */}
         <motion.button
-          className="z-50 relative hover:bg-[#2C7373] mt-12 lg:mt-16 px-8 py-3 retro-border border-[#BF9D5E] border-2 font-['Anton'] text-[#F2DCB3] tracking-wide transition-colors duration-300"
+          className="hover:bg-primary/30 mb-8 px-10 py-4 border-2 border-accent font-display text-base-100 text-xl tracking-wide transition-colors duration-300"
           onClick={scrollToNext}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 1.0 }}
-          whileHover={{ scale: 1.05 }}
+          transition={{ duration: 0.8, delay: 1.2 }}
+          whileHover={{ scale: 1.03 }}
           whileTap={{ scale: 0.98 }}
         >
           EXPLORE
         </motion.button>
+      </div>
+
+      {/* Decorative stars */}
+      <div className="top-20 left-16 absolute opacity-70 text-accent text-2xl">
+        ★
+      </div>
+      <div className="top-1/4 right-1/4 absolute opacity-60 text-accent text-xl">
+        ★
+      </div>
+      <div className="bottom-32 left-1/3 absolute opacity-70 text-accent text-lg">
+        ★
       </div>
     </section>
   );

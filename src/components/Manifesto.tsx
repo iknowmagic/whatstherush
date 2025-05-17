@@ -27,7 +27,7 @@ const Manifesto: React.FC = () => {
   return (
     <section
       id="manifesto"
-      className="relative flex flex-col justify-center items-center bg-[#F2DCB3] px-4 py-24 w-full min-h-screen"
+      className="relative flex flex-col justify-center items-center bg-base-100 px-4 py-24 w-full min-h-screen"
     >
       {/* Vintage texture overlay */}
       <div
@@ -40,10 +40,10 @@ const Manifesto: React.FC = () => {
       />
 
       {/* Corner stars decoration */}
-      <div className="top-8 left-8 absolute text-[#BF9D5E] text-xl">★</div>
-      <div className="top-8 right-8 absolute text-[#BF9D5E] text-xl">★</div>
-      <div className="bottom-8 left-8 absolute text-[#BF9D5E] text-xl">★</div>
-      <div className="right-8 bottom-8 absolute text-[#BF9D5E] text-xl">★</div>
+      <div className="top-8 left-8 absolute text-accent text-xl">★</div>
+      <div className="top-8 right-8 absolute text-accent text-xl">★</div>
+      <div className="bottom-8 left-8 absolute text-accent text-xl">★</div>
+      <div className="right-8 bottom-8 absolute text-accent text-xl">★</div>
 
       <div className="z-10 mx-auto w-full max-w-4xl">
         <motion.div
@@ -54,16 +54,16 @@ const Manifesto: React.FC = () => {
           viewport={{ once: true, amount: 0.3 }}
         >
           <motion.h2
-            className="inline-block relative mb-12 font-['Anton'] text-[#172625] text-4xl md:text-5xl"
+            className="inline-block relative mb-12 font-display text-base-content text-4xl md:text-5xl"
             variants={itemVariants}
           >
             <span className="z-10 relative">MANIFESTO</span>
-            <div className="right-0 -bottom-2 left-0 z-0 absolute bg-[#BF9D5E] h-1"></div>
+            <div className="right-0 -bottom-2 left-0 z-0 absolute bg-accent h-1"></div>
           </motion.h2>
 
-          <div className="space-y-8 font-['Spectral'] text-[#172625] text-xl md:text-2xl lg:text-3xl leading-relaxed">
+          <div className="space-y-8 font-body text-base-content text-xl md:text-2xl lg:text-3xl leading-relaxed">
             <motion.p variants={itemVariants} className="font-medium">
-              Tech should serve life—not accelerate it.
+              Tech should serve life, not accelerate it.
             </motion.p>
 
             <motion.div
@@ -71,42 +71,40 @@ const Manifesto: React.FC = () => {
               className="relative flex flex-col space-y-10 my-16"
             >
               {/* Decorative stars */}
-              <div className="top-8 -left-4 absolute text-[#2C7373] text-sm">
+              <div className="top-8 -left-4 absolute text-primary text-sm">
                 ★
               </div>
-              <div className="top-20 -right-4 absolute text-[#2C7373] text-sm">
+              <div className="top-20 -right-4 absolute text-primary text-sm">
                 ★
               </div>
-              <div className="bottom-8 -left-4 absolute text-[#2C7373] text-sm">
+              <div className="bottom-8 -left-4 absolute text-primary text-sm">
                 ★
               </div>
 
               <p className="font-light">
-                <span className="font-medium text-[#2C7373]">
-                  Sustainability
-                </span>{" "}
+                <span className="font-medium text-primary">Sustainability</span>{" "}
                 &gt; Growth
               </p>
               <p className="font-light">
-                <span className="font-medium text-[#2C7373]">Ethics</span> &gt;
+                <span className="font-medium text-primary">Ethics</span> &gt;
                 Hype
               </p>
               <p className="font-light">
-                <span className="font-medium text-[#2C7373]">Time</span> &gt;
+                <span className="font-medium text-primary">Time</span> &gt;
                 Metrics
               </p>
             </motion.div>
 
             <motion.p
               variants={itemVariants}
-              className="inline-block relative mx-auto mt-12 text-[#868C54] text-lg md:text-xl italic"
+              className="inline-block relative mx-auto mt-12 text-secondary text-lg md:text-xl italic"
             >
-              <span className="-top-2 -left-6 absolute text-[#868C54] text-xl">
+              <span className="-top-2 -left-6 absolute text-secondary text-xl">
                 ❝
               </span>
               The greatest threat to our planet is the belief that someone else
               will save it.
-              <span className="-right-6 -bottom-2 absolute text-[#868C54] text-xl">
+              <span className="-right-6 -bottom-2 absolute text-secondary text-xl">
                 ❞
               </span>
             </motion.p>

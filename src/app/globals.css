@@ -3,31 +3,34 @@
 @plugin "daisyui";
 @plugin "daisyui/theme" {
   name: "myTheme";
-  default: true; /* set as default */
-  prefersdark: false; /* set as default dark mode (prefers-color-scheme:dark) */
-  color-scheme: dark; /* color of browser-provided UI */
+  default: true;
+  prefersdark: false;
+  color-scheme: dark;
 
-  /* Color palette from requirements */
-  --color-primary: #2c7373;
-  --color-primary-content: #f2dcb3;
-  --color-secondary: #868c54;
-  --color-secondary-content: #f2dcb3;
-  --color-accent: #bf9d5e;
-  --color-accent-content: #172625;
-  --color-base-100: #f2dcb3;
-  --color-base-200: #ebd29e;
-  --color-base-300: #e1c686;
-  --color-base-content: #172625;
-  --color-neutral: #172625;
-  --color-neutral-content: #f2dcb3;
-  --color-info: #2c7373;
-  --color-info-content: #f2dcb3;
-  --color-success: #868c54;
-  --color-success-content: #f2dcb3;
-  --color-warning: #bf9d5e;
-  --color-warning-content: #172625;
-  --color-error: #a33028;
-  --color-error-content: #f2dcb3;
+  /* Color palette */
+  --color-primary: #2c7373; /* deep teal */
+  --color-primary-content: #f2dcb3; /* soft beige */
+  --color-secondary: #868c54; /* sage green */
+  --color-secondary-content: #f2dcb3; /* soft beige */
+  --color-accent: #bf9d5e; /* earthy gold */
+  --color-accent-content: #172625; /* almost black */
+
+  --color-base-100: #f2dcb3; /* soft beige */
+  --color-base-200: #ebd29e; /* lighter beige */
+  --color-base-300: #e1c686; /* darker beige */
+  --color-base-content: #172625; /* almost black */
+
+  --color-neutral: #172625; /* almost black */
+  --color-neutral-content: #f2dcb3; /* soft beige */
+
+  --color-info: #2c7373; /* deep teal */
+  --color-info-content: #f2dcb3; /* soft beige */
+  --color-success: #868c54; /* sage green */
+  --color-success-content: #f2dcb3; /* soft beige */
+  --color-warning: #bf9d5e; /* earthy gold */
+  --color-warning-content: #172625; /* almost black */
+  --color-error: #a33028; /* red */
+  --color-error-content: #f2dcb3; /* soft beige */
 
   /* Border radius */
   --radius-selector: 0;
@@ -49,14 +52,10 @@
 :root {
   --background: #172625;
   --foreground: #f2dcb3;
-}
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-inter);
-  --font-serif: var(--font-spectral);
-  --font-display: var(--font-anton);
+  /* Define font variables */
+  --font-display: var(--font-changa);
+  --font-body: var(--font-nunito);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -69,7 +68,7 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-sans);
+  font-family: var(--font-body);
   /* Add retro texture overlay */
   background-image:
     url("/images/noise-texture.png"),
@@ -78,36 +77,41 @@ body {
 }
 
 /* Custom font utility classes */
-.font-inter {
-  font-family: var(--font-sans);
-}
-
-.font-anton {
+.font-display {
   font-family: var(--font-display);
 }
 
-.font-spectral {
-  font-family: var(--font-serif);
+.font-body {
+  font-family: var(--font-body);
 }
 
-/* Text shadow for better readability */
-.text-shadow-sm {
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-}
+/* Text shadow utilities */
+@layer utilities {
+  .text-shadow-sm {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  }
 
-.text-shadow {
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
-}
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  }
 
-.text-shadow-lg {
-  text-shadow:
-    0 4px 8px rgba(0, 0, 0, 0.6),
-    0 2px 4px rgba(0, 0, 0, 0.4);
+  .text-shadow-lg {
+    text-shadow:
+      0 4px 8px rgba(0, 0, 0, 0.6),
+      0 2px 4px rgba(0, 0, 0, 0.4);
+  }
+
+  .text-shadow-xl {
+    text-shadow:
+      0 4px 8px rgba(0, 0, 0, 0.8),
+      0 6px 10px rgba(0, 0, 0, 0.5),
+      0 8px 12px rgba(0, 0, 0, 0.4);
+  }
 }
 
 /* Retro-futurist border styles */
 .retro-border {
-  border: 2px solid #bf9d5e;
+  border: 2px solid var(--color-accent);
   position: relative;
 }
 
@@ -128,7 +132,7 @@ body {
   content: "★";
   position: absolute;
   font-size: 1rem;
-  color: #bf9d5e;
+  color: var(--color-accent);
   top: -0.5rem;
   left: -0.5rem;
 }
