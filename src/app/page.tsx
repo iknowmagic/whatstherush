@@ -1,20 +1,20 @@
 import React from "react";
-import Hero from "@/components/Hero";
-import Manifesto from "@/components/Manifesto";
-import Tools from "@/components/Tools";
-import Header from "@/components/Header";
-// import Join from "@/components/Join";
-import Footer from "@/components/Footer";
+import Image from "next/image";
 
 const Home: React.FC = () => {
   return (
-    <main className="antialiased">
-      <Header />
-      <Hero />
-      <Manifesto />
-      <Tools />
-      {/* <Join /> */}
-      <Footer />
+    <main className="relative w-full h-screen overflow-hidden antialiased">
+      <Image
+        src="/whatstherush.jpg"
+        alt="What's the rush?"
+        fill
+        priority
+        sizes="100vw"
+        style={{
+          objectFit: "contain",
+          objectPosition: "center",
+        }}
+      />
     </main>
   );
 };
