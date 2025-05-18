@@ -1,26 +1,202 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@plugin "daisyui";
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: url("/images/grain-animation.webm") repeat;
+    mix-blend-mode: overlay;
+    opacity: 0.06;
+    z-index: 0;
+    pointer-events: none;
+  }
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Default dark theme */
+@plugin "daisyui/theme" {
+  name: "whatstherush";
+  default: true;
+  prefersdark: true;
+  color-scheme: dark;
+
+  /* Color palette */
+  --color-primary: #2c7373; /* deep teal */
+  --color-primary-content: #f2dcb3; /* soft beige */
+  --color-secondary: #868c54; /* sage green */
+  --color-secondary-content: #f2dcb3; /* soft beige */
+  --color-accent: #bf9d5e; /* earthy gold */
+  --color-accent-content: #172625; /* almost black */
+
+  --color-base-100: #f2dcb3; /* soft beige */
+  --color-base-200: #ebd29e; /* lighter beige */
+  --color-base-300: #e1c686; /* darker beige */
+  --color-base-content: #172625; /* almost black */
+
+  /* Add neutral colors to match the accent in footer */
+  --color-neutral: #172625; /* almost black */
+  --color-neutral-content: #f2dcb3; /* soft beige */
+}
+
+/* Light theme alternative */
+@plugin "daisyui/theme" {
+  name: "whatstherushDay";
+  prefersdark: false;
+  color-scheme: light;
+
+  --color-base-100: #fdf6e3;
+  --color-base-200: #f5e6c8;
+  --color-base-300: #e5d1a5;
+  --color-base-content: #3e2e1e;
+
+  --color-primary: #91b6d2;
+  --color-primary-content: #1f1f1f;
+
+  --color-secondary: #9dad6f;
+  --color-secondary-content: #212121;
+
+  --color-accent: #d88c4a;
+  --color-accent-content: #fff5e1;
+
+  --color-neutral: #857c6f;
+  --color-neutral-content: #2d2d2d;
+}
+
+/* Poster-style base bg */
+.bg-poster {
+  background-color: #0f1c22;
+  background-image:
+    url("/images/night/stars-bg.png"), url("/images/night/vintage-texture.png");
+  background-size: cover, cover;
+  background-blend-mode: overlay;
+}
+
+/* Light theme background override */
+html[data-theme="whatstherushDay"] .bg-poster {
+  background-color: #eae4d1;
+  background-image:
+    url("/images/day/clouds-bg.png"), url("/images/day/vintage-texture.png");
+  background-size: cover, cover;
+  background-blend-mode: overlay;
+}
+
+/* Daisy border radius overrides */
+:root {
+  --rounded-box: 2rem;
+  --rounded-btn: 2rem;
+}
+
+/* Existing classes remain unchanged */
+
+:root {
+  --background: #172625;
+  --foreground: #f2dcb3;
+
+  /* Define font variables */
+  --font-display: var(--font-changa);
+  --font-body: var(--font-nunito);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #172625;
+    --foreground: #f2dcb3;
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body);
+  /* Add retro texture overlay */
+  background-image:
+    url("/images/noise-texture.png"),
+    linear-gradient(to bottom, rgba(23, 38, 37, 0.95), rgba(23, 38, 37, 0.95));
+  background-blend-mode: overlay;
+}
+
+/* Custom font utility classes */
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-body {
+  font-family: var(--font-body);
+}
+
+/* Text shadow utilities */
+@layer utilities {
+  .text-shadow-sm {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  }
+
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  }
+
+  .text-shadow-lg {
+    text-shadow:
+      0 4px 8px rgba(0, 0, 0, 0.6),
+      0 2px 4px rgba(0, 0, 0, 0.4);
+  }
+
+  .text-shadow-xl {
+    text-shadow:
+      0 4px 8px rgba(0, 0, 0, 0.8),
+      0 6px 10px rgba(0, 0, 0, 0.5),
+      0 8px 12px rgba(0, 0, 0, 0.4);
+  }
+}
+
+/* Retro-futurist border styles */
+.retro-border {
+  border: 2px solid var(--color-accent);
+  position: relative;
+}
+
+.retro-border::before {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border: 1px solid rgba(191, 157, 94, 0.3);
+  pointer-events: none;
+}
+
+/* Star accents for decorative elements */
+.star-accent {
+  position: relative;
+}
+
+.star-accent::before {
+  content: "★";
+  position: absolute;
+  font-size: 1rem;
+  color: var(--color-accent);
+  top: -0.5rem;
+  left: -0.5rem;
+}
+
+/* Vintage poster texture */
+.vintage-texture {
+  position: relative;
+}
+
+.vintage-texture::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("/images/vintage-texture.png");
+  background-blend-mode: overlay;
+  opacity: 0.15;
+  pointer-events: none;
+}
+
+/* Add a utility class for radial gradients */
+.bg-gradient-radial {
+  background-image: radial-gradient(var(--tw-gradient-stops));
 }

@@ -1,5 +1,5 @@
 {
-  "name": "whatstherush",
+  "name": "test",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -7,13 +7,17 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "branch": "zsh scripts/newbranch.zsh",
+    "snap": "zsh scripts/snapshot.zsh",
+    "minor": "npm version minor",
+    "major": "npm version major",
     "prepare": "husky"
   },
   "dependencies": {
-    "branch": "zsh scripts/newbranch.zsh",
     "next": "15.3.2",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "react-icons": "^5.5.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.8.1",
@@ -23,10 +27,13 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "daisyui": "^5.0.35",
     "eslint": "^9",
     "eslint-config-next": "15.3.2",
+    "framer-motion": "^12.12.1",
     "husky": "^9.1.7",
     "lint-staged": "^16.0.0",
+    "prettier": "^3.5.3",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
