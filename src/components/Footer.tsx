@@ -1,76 +1,84 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
+import { FaTwitter, FaMastodon, FaLinkedin, FaCloud } from "react-icons/fa6";
+import { FaArrowUp } from "react-icons/fa6";
 
 const Footer: React.FC = () => {
-  const currentYear = new Date().getFullYear();
+  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
   return (
-    <footer className="bg-[#172625] py-12 font-['Inter'] text-[#F2DCB3]/80">
+    <footer className="bg-neutral p-10 border-accent border-t text-neutral-content footer">
       <div className="mx-auto px-4 md:px-8 container">
         <div className="mx-auto max-w-6xl">
           {/* Quote */}
-          <div className="mb-12 text-center">
-            <p className="text-sm md:text-base italic">
-              "The planet has been here for billions of years. What's the
-              f*cking rush?"
-            </p>
+          <div className="mb-10">
+            <div className="text-center">
+              <div className="px-4 py-3 badge-outline badge badge-accent">
+                The planet has been here for billions of years. What&apos;s the
+                f*cking rush?
+              </div>
+            </div>
           </div>
 
           {/* Navigation */}
-          <div className="flex justify-center space-x-8 md:space-x-12 mb-12">
-            <Link
-              href="/about"
-              className="hover:text-[#F2DCB3] transition-colors"
-            >
+          <nav className="flex flex-wrap justify-center gap-6 text-sm">
+            <Link href="/about" className="link link-hover">
               About
             </Link>
-            <Link
-              href="/blog"
-              className="hover:text-[#F2DCB3] transition-colors"
-            >
+            <Link href="/blog" className="link link-hover">
               Blog
             </Link>
-            <Link
-              href="/apps"
-              className="hover:text-[#F2DCB3] transition-colors"
-            >
+            <Link href="/apps" className="link link-hover">
               Apps
             </Link>
-            <Link
-              href="/contact"
-              className="hover:text-[#F2DCB3] transition-colors"
-            >
+            <Link href="/contact" className="link link-hover">
               Contact
             </Link>
+          </nav>
+
+          {/* Social icons */}
+          <div className="flex justify-center gap-6 mt-10 text-xl">
+            <a
+              href="https://bsky.app/profile/yourhandle.bsky.social"
+              className="tooltip"
+              data-tip="Bluesky"
+            >
+              <FaCloud className="hover:text-accent transition-colors" />
+            </a>
+            <a
+              href="https://twitter.com/yourhandle"
+              className="tooltip"
+              data-tip="Twitter"
+            >
+              <FaTwitter className="hover:text-accent transition-colors" />
+            </a>
+            <a
+              href="https://mastodon.social/@yourhandle"
+              className="tooltip"
+              data-tip="Mastodon"
+            >
+              <FaMastodon className="hover:text-accent transition-colors" />
+            </a>
+            <a
+              href="https://linkedin.com/in/yourhandle"
+              className="tooltip"
+              data-tip="LinkedIn"
+            >
+              <FaLinkedin className="hover:text-accent transition-colors" />
+            </a>
           </div>
 
-          <div className="flex md:flex-row flex-col justify-between items-center pt-8 border-[#F2DCB3]/20 border-t text-[#F2DCB3]/50 text-xs">
-            <div>
-              &copy; {currentYear} What's The Rush. All rights reserved.
-            </div>
-
-            <div className="flex space-x-6 mt-4 md:mt-0">
-              <Link
-                href="/privacy"
-                className="hover:text-[#F2DCB3] transition-colors"
-              >
-                Privacy
-              </Link>
-              <Link
-                href="/terms"
-                className="hover:text-[#F2DCB3] transition-colors"
-              >
-                Terms
-              </Link>
-              <a
-                href="https://github.com/whatstherush"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-[#F2DCB3] transition-colors"
-              >
-                GitHub
-              </a>
-            </div>
+          {/* Scroll to Top */}
+          <div className="mt-12 text-center">
+            <button
+              onClick={scrollToTop}
+              className="btn-outline text-sm tracking-wide hover:scale-105 transition-transform btn btn-sm btn-accent"
+            >
+              <FaArrowUp className="inline-block mr-2" />
+              Back to Top
+            </button>
           </div>
         </div>
       </div>

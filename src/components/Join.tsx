@@ -36,7 +36,7 @@ const Join: React.FC = () => {
 
           <div className="bg-[#2C7373]/20 mb-12 p-8 md:p-12 border-[#2C7373] border-l-4">
             <p className="mb-6 font-['Inter'] text-xl md:text-2xl leading-relaxed">
-              This is not a startup. It's a stand.
+              This is not a startup. It&#39;s a stand.
             </p>
             <p className="font-['Inter'] text-lg md:text-xl leading-relaxed">
               Want to write, build, or support the movement?
@@ -74,7 +74,7 @@ const Join: React.FC = () => {
                 animate={{ opacity: 1, height: "auto" }}
                 exit={{ opacity: 0, height: 0 }}
               >
-                Thank you for joining. We'll be in touch.
+                Thank you for joining. We&#39;ll be in touch.
               </motion.div>
             )}
           </form>

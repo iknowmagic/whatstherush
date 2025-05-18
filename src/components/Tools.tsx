@@ -18,20 +18,34 @@ const ToolCard: React.FC<ToolCardProps> = ({
 }) => {
   return (
     <motion.div
-      className={`bg-[#F2DCB3] p-6 md:p-8 ${comingSoon ? "opacity-70" : ""}`}
-      whileHover={{ y: -5 }}
+      className={`bg-base-100 border-2 border-accent/70 p-6 md:p-8 relative ${
+        comingSoon ? "opacity-90" : ""
+      }`}
+      whileHover={{ y: -5, boxShadow: "0 10px 20px rgba(0,0,0,0.1)" }}
       transition={{ duration: 0.3 }}
     >
-      <div className="mb-4 text-[#172625] text-3xl">{icon}</div>
-      <h3 className="mb-3 font-['Anton'] text-[#172625] text-xl md:text-2xl">
+      {/* Star accent in corner */}
+      {!comingSoon && (
+        <div className="-top-3 -right-3 absolute text-accent text-xl">★</div>
+      )}
+
+      <div className="flex justify-center items-center mb-4 h-12 text-base-content text-3xl">
+        {icon}
+      </div>
+
+      <h3 className="mb-3 font-display text-base-content text-xl md:text-2xl text-center">
         {title}
       </h3>
-      <p className="font-['Inter'] text-[#172625]/80 text-sm md:text-base">
+
+      <p className="font-body text-sm text-base-content/80 md:text-base text-center">
         {description}
       </p>
+
       {comingSoon && (
-        <div className="inline-block bg-[#868C54]/20 mt-4 px-3 py-1 font-['Inter'] font-medium text-[#868C54] text-xs">
-          COMING SOON
+        <div className="flex justify-center mt-4">
+          <div className="inline-block bg-secondary/20 px-3 py-1 border border-secondary/30 font-body font-medium text-secondary text-xs">
+            COMING SOON
+          </div>
         </div>
       )}
     </motion.div>
@@ -91,17 +105,36 @@ const Tools: React.FC = () => {
   };
 
   return (
-    <section className="bg-[#868C54] py-20 w-full">
-      <div className="mx-auto px-4 md:px-8 container">
-        <motion.h2
-          className="mb-16 font-['Anton'] text-[#F2DCB3] text-4xl md:text-5xl text-center"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.1 }}
-          transition={{ duration: 0.6 }}
-        >
-          THE TOOLS
-        </motion.h2>
+    <section className="relative bg-secondary py-20 w-full">
+      {/* Vintage texture overlay */}
+      <div
+        className="absolute inset-0 bg-cover bg-center pointer-events-none"
+        style={{
+          backgroundImage: 'url("/images/vintage-texture.png")',
+          opacity: 0.1,
+          mixBlendMode: "overlay",
+        }}
+      />
+
+      {/* Corner stars decoration */}
+      <div className="top-8 left-8 absolute text-base-100 text-xl">★</div>
+      <div className="top-8 right-8 absolute text-base-100 text-xl">★</div>
+      <div className="bottom-8 left-8 absolute text-base-100 text-xl">★</div>
+      <div className="right-8 bottom-8 absolute text-base-100 text-xl">★</div>
+
+      <div className="z-10 relative mx-auto px-4 md:px-8 container">
+        <div className="mb-12 text-center">
+          <motion.h2
+            className="inline-block relative font-display text-base-100 text-4xl md:text-5xl"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.1 }}
+            transition={{ duration: 0.6 }}
+          >
+            THE TOOLS
+            <div className="right-0 -bottom-2 left-0 absolute bg-accent h-1"></div>
+          </motion.h2>
+        </div>
 
         <motion.div
           className="gap-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4"
@@ -118,14 +151,14 @@ const Tools: React.FC = () => {
         </motion.div>
 
         <motion.div
-          className="mx-auto mt-16 max-w-2xl font-['Inter'] text-[#F2DCB3]/90 text-center"
+          className="mx-auto mt-16 p-6 border-2 border-base-100/30 max-w-2xl font-body text-base-100 text-center"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true, amount: 0.1 }}
           transition={{ duration: 0.6, delay: 0.8 }}
         >
           <p>
-            We're building technology that respects human limitations and
+            We&#39;re building technology that respects human limitations and
             natural rhythms. No artificial urgency. No engagement hacking. Just
             tools that serve life.
           </p>
