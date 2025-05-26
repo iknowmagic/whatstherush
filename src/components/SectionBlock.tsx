@@ -17,20 +17,20 @@ const SectionBlock: React.FC<SectionBlockProps> = ({
 
   return (
     <div
-      className={`grid grid-cols-2 h-[170px] w-full ${
-        isDark ? "bg-[#313131] text-white" : "bg-white text-black"
+      className={`grid grid-cols-2 h-sm w-full ${
+        isDark ? "bg-dark text-light" : "bg-light text-black"
       }`}
     >
       {/* TEXT SIDE */}
-      <div className={`flex items-center ${flip ? "order-2 pr-5" : "pl-5"}`}>
-        <div className="font-inconsolata text-[14px] leading-snug whitespace-pre-wrap">
-          {children}
-        </div>
+      <div
+        className={`flex items-center w-[180px] ${flip ? "order-2 pr-5" : "pl-5"}`}
+      >
+        <div className="font-inconsolata text-sm leading-snug">{children}</div>
       </div>
 
       {/* IMAGE SIDE */}
       <div
-        className={`flex items-center justify-center w-[170px] h-[170px] ${
+        className={`flex items-center justify-center w-sm h-sm ${
           flip ? "order-1" : ""
         }`}
       >
