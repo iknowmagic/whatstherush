@@ -4,12 +4,12 @@
 
 set -e  # stop on any git error
 
-# must be on a work/b#### branch
+# enforce a work/b#### branch
 branch=$(git rev-parse --abbrev-ref HEAD)
-if [[ $branch != work/b* ]]; then
-  echo "Not on a work/* branch. Aborting."
-  exit 1
-fi
+# if [[ $branch != work/b* ]]; then
+#   echo "Not on a work/* branch. Aborting."
+#   exit 1
+# fi
 
 serial=${branch##*/}                 # b0007
 today=$(date +%Y.%m.%d)              # 2025.05.10

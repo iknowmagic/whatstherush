@@ -19,18 +19,18 @@ const SectionBlock: React.FC<SectionBlockProps> = ({
 
   return (
     <div
-      className={`flex w-full h-section tablet:h-section desktop:h-section ${
+      className={`flex w-full ${
         isDark ? "bg-dark text-light" : "bg-light text-dark"
       }`}
     >
       {flip && (
-        <div className="flex justify-start items-center pl-1 desktop:pl-6 tablet:pl-4 h-full">
+        <div className="flex justify-start items-center pl-1 h-full">
           <Image
             src={image}
             width={170}
             height={170}
             alt={alt}
-            className="w-image desktop:w-image tablet:w-image h-image desktop:h-image tablet:h-image object-cover"
+            className="object-cover"
           />
         </div>
       )}
