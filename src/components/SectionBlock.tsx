@@ -5,8 +5,8 @@ import { ReactNode } from "react";
 interface SectionBlockProps {
   children: ReactNode;
   image: StaticImageData;
-  alt: string; // Alt text for the image
-  flip?: boolean; // flip=true means image on left, flip=false means image on right
+  alt: string;
+  flip?: boolean;
 }
 
 const SectionBlock: React.FC<SectionBlockProps> = ({
@@ -19,39 +19,38 @@ const SectionBlock: React.FC<SectionBlockProps> = ({
 
   return (
     <div
-      className={`flex w-full h-sm md:h-md lg:h-lg ${
+      className={`flex w-full h-section tablet:h-section desktop:h-section ${
         isDark ? "bg-dark text-light" : "bg-light text-dark"
       }`}
     >
-      {/* When flip=true, image comes first (left side) */}
       {flip && (
-        <div className="flex justify-start items-center pl-1 h-full">
+        <div className="flex justify-start items-center pl-1 desktop:pl-6 tablet:pl-4 h-full">
           <Image
             src={image}
             width={170}
             height={170}
             alt={alt}
-            className="md:w-[200px] lg:w-[240px] md:h-[200px] lg:h-[240px] object-cover"
+            className="w-image desktop:w-image tablet:w-image h-image desktop:h-image tablet:h-image object-cover"
           />
         </div>
       )}
 
-      {/* TEXT SIDE - remaining space */}
-      <div className={`flex flex-1 items-center` + (!flip ? " pl-4" : " pr-4")}>
-        <div className="font-inconsolata md:text-md text-sm lg:text-lg leading-[1.2em]">
+      <div
+        className={`flex flex-1 items-center${!flip ? " pl-4 tablet:pl-6 desktop:pl-8" : " pr-4 tablet:pr-6 desktop:pr-8"}`}
+      >
+        <div className="max-w-[200px] desktop:max-w-[400px] tablet:max-w-[300px] font-inconsolata text-body desktop:text-body tablet:text-body leading-[1.2em]">
           {children}
         </div>
       </div>
 
-      {/* When flip=false, image comes second (right side) */}
       {!flip && (
-        <div className="flex justify-end items-center pr-1 w-sm md:w-md lg:w-lg h-full">
+        <div className="flex justify-end items-center pr-1 desktop:pr-6 tablet:pr-4 w-image desktop:w-image tablet:w-image h-full">
           <Image
             src={image}
             width={170}
             height={170}
             alt={alt}
-            className="md:w-[200px] lg:w-[240px] md:h-[200px] lg:h-[240px] object-cover"
+            className="w-image desktop:w-image tablet:w-image h-image desktop:h-image tablet:h-image object-cover"
           />
         </div>
       )}
