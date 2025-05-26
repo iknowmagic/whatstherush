@@ -1,7 +1,7 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
-@import url("https://fonts.googleapis.com/css2?family=Inconsolata&family=Roboto+Condensed:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;400;500;600;700&family=Roboto+Condensed:wght@700&display=swap");
 
 .font-inconsolata {
   font-family: "Inconsolata", monospace;
@@ -15,59 +15,127 @@
   html {
     scroll-behavior: smooth;
   }
+
+  body {
+    min-width: 320px; /* Ensure minimum mobile width */
+  }
 }
 
 @theme {
-  --breakpoint-sm: 320px;
-  --breakpoint-md: 960px;
-  --breakpoint-lg: 1200px;
+  /* Mobile-first breakpoints (Tailwind standard) */
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
 
-  --text-sm: 16px;
-  --text-md: 20px;
-  --text-lg: 24px;
+  /* Mobile-first responsive text sizes */
+  --text-sm: 16px; /* Base mobile size - matches your Figma */
+  --text-md: 20px; /* Larger mobile/tablet */
+  --text-lg: 24px; /* Desktop */
 
-  --text-title-sm: 40px;
-  --text-title-md: 120px;
-  --text-title-lg: 140px;
+  /* Responsive title sizes */
+  --text-title-sm: 40px; /* Mobile hero */
+  --text-title-md: 80px; /* Tablet hero */
+  --text-title-lg: 120px; /* Desktop hero */
 
-  --spacing-sm: 170px;
-  --spacing-md: 440px;
-  --spacing-lg: 540px;
+  /* Responsive spacing (section heights) */
+  --spacing-sm: 170px; /* Mobile section height */
+  --spacing-md: 240px; /* Tablet section height */
+  --spacing-lg: 300px; /* Desktop section height */
 
-  --h-title-sm: 150px;
-  --h-title-md: 430px;
-  --h-title-lg: 520px;
+  /* Hero heights */
+  --h-title-sm: 150px; /* Mobile hero */
+  --h-title-md: 200px; /* Tablet hero */
+  --h-title-lg: 250px; /* Desktop hero */
 
+  /* Colors */
   --color-dark: #313131;
   --color-light: white;
 }
 
+@layer components {
+  .bg-dark {
+    background-color: var(--color-dark);
+  }
+
+  .bg-light {
+    background-color: var(--color-light);
+  }
+
+  .text-dark {
+    color: var(--color-dark);
+  }
+
+  .text-light {
+    color: var(--color-light);
+  }
+}
+
 @layer utilities {
+  /* Base mobile utilities */
   .w-sm {
     width: var(--spacing-sm);
   }
   .h-sm {
     height: var(--spacing-sm);
   }
-  .w-md {
-    width: var(--spacing-md);
-  }
-  .h-md {
-    height: var(--spacing-md);
-  }
-  .w-lg {
-    width: var(--spacing-lg);
-  }
-  .h-lg {
-    height: var(--spacing-lg);
-  }
   .h-title-sm {
     height: var(--h-title-sm);
   }
-  .h-title-md {
-    height: var(--h-title-md);
+  .text-title-sm {
+    font-size: var(--text-title-sm);
   }
-  .h-title-lg {
-    height: var(--h-title-lg);
+  .text-sm {
+    font-size: var(--text-sm);
+  }
+
+  /* Responsive utilities for larger screens */
+  @media (min-width: 768px) {
+    .md\:w-md {
+      width: var(--spacing-md);
+    }
+    .md\:h-md {
+      height: var(--spacing-md);
+    }
+    .md\:h-title-md {
+      height: var(--h-title-md);
+    }
+    .md\:text-title-md {
+      font-size: var(--text-title-md);
+    }
+    .md\:text-md {
+      font-size: var(--text-md);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .lg\:w-lg {
+      width: var(--spacing-lg);
+    }
+    .lg\:h-lg {
+      height: var(--spacing-lg);
+    }
+    .lg\:h-title-lg {
+      height: var(--h-title-lg);
+    }
+    .lg\:text-title-lg {
+      font-size: var(--text-title-lg);
+    }
+    .lg\:text-lg {
+      font-size: var(--text-lg);
+    }
+  }
+
+  /* Additional responsive image utilities */
+  @media (min-width: 768px) {
+    .md\:w-img-md {
+      width: 200px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .lg\:w-img-lg {
+      width: 240px;
+    }
   }
 }
