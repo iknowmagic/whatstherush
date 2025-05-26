@@ -1,20 +1,18 @@
-import { Nunito } from "next/font/google";
-import { Changa_One } from "next/font/google";
+import { Roboto_Condensed, Inconsolata } from "next/font/google";
 import "./globals.css";
 import type { Metadata, Viewport } from "next";
 import StructuredData from "@/components/StructuredData";
 
-// Font configurations
-const nunito = Nunito({
+const robotoCondensed = Roboto_Condensed({
   subsets: ["latin"],
-  variable: "--font-nunito",
+  variable: "--font-roboto-condensed",
+  weight: "400",
   display: "swap",
-  weight: ["300", "400", "500", "600", "700"],
 });
 
-const changaOne = Changa_One({
+const inconsolata = Inconsolata({
   subsets: ["latin"],
-  variable: "--font-changa",
+  variable: "--font-inconsolata",
   weight: "400",
   display: "swap",
 });
@@ -65,7 +63,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#172625",
+  themeColor: "#313131",
   width: "device-width",
   initialScale: 1,
 };
@@ -78,8 +76,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${nunito.variable} ${changaOne.variable}`}
-      data-theme="myTheme"
+      className={`${robotoCondensed.variable} ${inconsolata.variable}`}
     >
       <head>
         <link rel="icon" href="/favicon_io/favicon.ico" />
