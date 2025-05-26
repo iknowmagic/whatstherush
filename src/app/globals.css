@@ -39,6 +39,23 @@
   /* Removed scroll-behavior: smooth to avoid conflicts */
   body {
     min-width: 320px;
+    /* Mobile: normal scale */
+    transform: scale(1);
+    transform-origin: center top;
+  }
+
+  /* Tablet: 80% scale */
+  @media (min-width: 768px) {
+    body {
+      transform: scale(0.7);
+    }
+  }
+
+  /* Desktop: 60% scale */
+  @media (min-width: 1024px) {
+    body {
+      transform: scale(0.7);
+    }
   }
 }
 
@@ -94,7 +111,7 @@
     height: var(--image-size-mobile);
   }
 
-  /* Container for centering after 1200px */
+  /* Container for centering after 800px */
   .container-responsive {
     width: 100%;
     max-width: 1200px;

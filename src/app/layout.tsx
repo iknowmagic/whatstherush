@@ -6,7 +6,7 @@ import StructuredData from "@/components/StructuredData";
 const robotoCondensed = Roboto_Condensed({
   subsets: ["latin"],
   variable: "--font-roboto-condensed",
-  weight: "700",
+  weight: "400",
   display: "swap",
 });
 
