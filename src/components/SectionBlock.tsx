@@ -36,7 +36,7 @@ const SectionBlock: React.FC<SectionBlockProps> = ({
       )}
 
       <div
-        className={`flex flex-1 items-center${!flip ? " pl-4 tablet:pl-6 desktop:pl-8" : " pr-4 tablet:pr-6 desktop:pr-8"}`}
+        className={`flex flex-1 items-center${!flip ? " pl-4 md:pl-12 lg:pl-24 tablet:pl-6 desktop:pl-8" : " pr-4 md:pr-12 lg:pr-24 tablet:pr-6 desktop:pr-8"}`}
       >
         <div className="max-w-[200px] desktop:max-w-[400px] tablet:max-w-[300px] font-inconsolata text-body desktop:text-body tablet:text-body leading-[1.2em]">
           {children}
