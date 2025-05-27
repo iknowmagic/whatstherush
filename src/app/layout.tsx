@@ -2,6 +2,7 @@ import { Roboto_Condensed, Inconsolata } from "next/font/google";
 import "./globals.css";
 import type { Metadata, Viewport } from "next";
 import StructuredData from "@/components/StructuredData";
+import ScrollProvider from "@/components/ScrollProvider";
 
 const robotoCondensed = Roboto_Condensed({
   subsets: ["latin"],
@@ -100,7 +101,9 @@ export default function RootLayout({
         <link rel="manifest" href="/favicon_io/site.webmanifest" />
         <StructuredData />
       </head>
-      <body suppressHydrationWarning={true}>{children}</body>
+      <body suppressHydrationWarning={true}>
+        <ScrollProvider>{children}</ScrollProvider>
+      </body>
     </html>
   );
 }
