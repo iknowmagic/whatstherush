@@ -1,82 +1,63 @@
-# What's The Rush
+# What’s The Rush?
 
-## About this Project
+**An advocacy project for a slower, more humane future**
 
-This is a Next.js project that presents an alternative philosophy to accelerationism in tech culture. The app promotes more sustainable, ethical, and humane approaches to technology development and use.
+---
 
-### Project Structure
+**What’s The Rush?** is a cultural critique disguised as a digital campaign. It challenges the myth that faster is always better — especially in the age of AI and automation.
 
-- `src/app` - Next.js App Router structure
-- `src/components` - React components including:
-  - `Hero.tsx` - Landing section with parallax scroll effects
-  - `Manifesto.tsx` - Project philosophy statement
-  - `Tools.tsx` - Practical tools and approaches
-  - `Join.tsx` - Newsletter/community signup form
-  - `Footer.tsx` - Site footer with navigation
-  - `Motion.tsx` - Wrapper for framer-motion animations
+At its core, this project asks:
 
-### Technical Details
+> The planet has been here for billions of years.  
+> **What’s the f\*cking rush?**
 
-- **Framework**: Next.js 15 with App Router
-- **Styling**: Tailwind CSS v4
-- **Animations**: Framer Motion
-- **Fonts**: Next.js optimized fonts (Inter, Spectral, Anton)
-- **State Management**: React useState/useEffect hooks
-- **Code Quality**: ESLint, Prettier
+---
 
-### Key Concepts
+## Why this matters
 
-The app challenges accelerationist tech culture, advocating for technology that:
+Technology was supposed to free us from endless work.  
+Instead, it’s accelerated everything — including burnout.
 
-- Prioritizes sustainability over rapid growth
-- Values human wellbeing over technological progress
-- Encourages thoughtful deployment rather than rushing to market
-- Respects planetary limits and ecological boundaries
+Despite promises of productivity, many workers feel more pressure, longer hours, and less control. AI that was meant to offload tasks is now driving the same exploitative systems — only faster.
 
-### Development Commands
+We were told we’d have more time.  
+Instead, we’re drowning in notifications, meetings, and digital overload.
 
-- `pnpm dev` - Run development server
-- `pnpm build` - Build for production
-- `pnpm start` - Start production server
-- `pnpm lint` - Run ESLint
+This project says: **enough.**
 
-## Note to GitHub Copilot
+---
 
-This project uses Tailwind v4 with the `@import "tailwindcss"` syntax in globals.css. The project follows a philosophy of "humane technology" and is structured as a landing page with sections explaining an anti-accelerationist approach to technology. The Motion.tsx component serves as a wrapper for framer-motion to fix Next.js client component issues with "export \*" syntax.
+## What we believe
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+- **Technology should serve life — not accelerate it**
+- **Ethics over hype**
+- **Sustainability over growth**
+- **Time over metrics**
+- **Presence over productivity**
 
-## Getting Started
+We advocate for humane tech, slow design, and a new definition of productivity: one measured in **wellbeing**, not output.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## What we’re fighting
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Accelerationism as default
+- The broken promise of AI-enabled leisure
+- Work cultures that glorify exhaustion
+- Metrics that value speed over substance
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## What we’re proposing
 
-## Learn More
+- A slower pace — in design, in work, in life
+- Tools that restore autonomy, not extract attention
+- A shift in values: from hustle to depth, from scale to meaning
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This isn’t nostalgia.  
+It’s a call for **deliberate progress.**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Technology is not the enemy.  
+**The rush is.**
