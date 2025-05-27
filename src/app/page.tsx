@@ -49,7 +49,11 @@ const Home: React.FC = () => {
           <br />
           Moss.
           <br />
-          Rivers. Hands. You don&rsquo;t get that by hurrying.
+          Rivers.
+          <br />
+          Hands.
+          <br />
+          You don&rsquo;t get that by hurrying.
         </SectionBlock>
         <SectionBlock image={tortoiseImg} alt="Tortoise" flip>
           the road
