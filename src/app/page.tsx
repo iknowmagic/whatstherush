@@ -22,24 +22,41 @@ const Home: React.FC = () => {
           image={universeImg}
           alt="Universe with galaxies and stars"
         >
-          the universe has come a long way
+          Not the center.
           <br />
-          and still doesn&rsquo;t know where it&rsquo;s going
+          Never were.
           <br />
-          maybe that&rsquo;s okay
+          Not the edge.
+          <br />
+          Just a speck of dust
+          <br />
+          in a bowl too big to hold.
         </SectionBlock>
+
         <SectionBlock image={galaxyImg} alt="Spiral galaxy" flip>
-          it&rsquo;s not that we&rsquo;re small
+          Of all the spirals,
           <br />
-          it&rsquo;s that nothing else is trying to be big
+          you ended up in this one.
+          <br />
+          A coincidence.
+          <br />
+          13 billion years
+          <br />
+          to make room for you.
         </SectionBlock>
         <SectionBlock image={planetImg} alt="Planet Earth">
-          it moves without urgency
+          The earth takes its time.
           <br />
-          and somehow it all works
+          Moss.
+          <br />
+          Rivers. Hands. You don&rsquo;t get that by hurrying.
         </SectionBlock>
         <SectionBlock image={tortoiseImg} alt="Tortoise" flip>
-          we&rsquo;ll get there eventually
+          the road
+          <br />
+          was the point
+          <br />
+          the whole time
           <br />
           the scenery is better this way
         </SectionBlock>
@@ -51,16 +68,18 @@ const Home: React.FC = () => {
           nothing else required
         </SectionBlock>
         <SectionBlock image={octopusImg} alt="Octopus" flip>
-          I once wrote a novel in ink
+          I could do everything.
           <br />
-          no one noticed
-          <br />
-          which is how I like it
+          But I don&rsquo;t.
         </SectionBlock>
         <SectionBlock image={slothImg} alt="Sloth">
-          speed is useful
+          It was quiet at first.
           <br />
-          until you forget what for
+          Then someone ran.
+          <br />
+          Now no one remembers
+          <br />
+          what we were chasing.
         </SectionBlock>
         <SectionBlock image={birdsImg} alt="Flock of birds in flight" flip>
           I didn&rsquo;t know where I was going
@@ -70,11 +89,11 @@ const Home: React.FC = () => {
           and that felt like direction
         </SectionBlock>
         <SectionBlock image={humanImg} alt="Human">
-          I didn&rsquo;t know where I was going
+          Maybe I was never lost.
           <br />
-          but I wasn&rsquo;t alone
+          Just moving too fast
           <br />
-          and that felt like direction
+          to recognize the story I was in.
         </SectionBlock>
       </div>
     </main>
