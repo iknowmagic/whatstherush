@@ -12,6 +12,7 @@ import octopusImg from "@/assets/octopus.png";
 import slothImg from "@/assets/sloth.png";
 import birdsImg from "@/assets/birds.png";
 import humanImg from "@/assets/human.png";
+import Background from "@/components/Background";
 
 const Home: React.FC = () => {
   return (
@@ -100,6 +101,7 @@ const Home: React.FC = () => {
           to recognize the story I was in.
         </SectionBlock>
       </div>
+      <Background />
     </main>
   );
 };
