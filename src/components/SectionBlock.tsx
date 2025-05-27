@@ -19,29 +19,44 @@ const SectionBlock: React.FC<SectionBlockProps> = ({
 
   return (
     <div
-      className={`grid grid-cols-2 place-items-center h-[170px] w-full ${
+      className={`grid justify-center items-center h-[170px] sm:h-[220px] w-full ${
         isDark ? "bg-dark text-light" : "bg-light text-dark"
-      }`}
+      } ${flip ? "grid-cols-[170px_1fr] sm:grid-cols-[220px_1fr]" : "grid-cols-[1fr_170px] sm:grid-cols-[1fr_220px]"}`}
     >
+      {/* IMAGE */}
+      {flip && (
+        <div className="w-[170px] sm:w-[220px] h-[170px] sm:h-[220px] shrink-0">
+          <Image
+            src={image}
+            width={220}
+            height={220}
+            alt={alt}
+            className="w-full h-full object-cover"
+            sizes="(min-width: 768px) 220px, 170px"
+          />
+        </div>
+      )}
+
       {/* TEXT */}
       <div
-        className={`font-inconsolata leading-tight ${
-          flip
-            ? "order-2 justify-self-start pr-4"
-            : "order-1 justify-self-end pl-4"
-        }`}
+        className={`px-6 text-sm sm:text-lg md:text-2xl font-inconsolata leading-tight ${flip ? "text-left" : "text-right"} `}
       >
         {children}
       </div>
 
       {/* IMAGE */}
-      <Image
-        src={image}
-        width={170}
-        height={170}
-        alt={alt}
-        className={`object-cover ${flip ? "order-1" : "order-2"}`}
-      />
+      {!flip && (
+        <div className="w-[170px] sm:w-[220px] h-[170px] sm:h-[220px] shrink-0">
+          <Image
+            src={image}
+            width={220}
+            height={220}
+            alt={alt}
+            className="w-full h-full object-cover"
+            sizes="(min-width: 768px) 220px, 170px"
+          />
+        </div>
+      )}
     </div>
   );
 };
