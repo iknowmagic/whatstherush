@@ -19,38 +19,41 @@ const SectionBlock: React.FC<SectionBlockProps> = ({
 
   return (
     <div
-      className={`flex w-full h-section tablet:h-section desktop:h-section ${
+      className={`grid justify-center items-center h-[170px] sm:h-[220px] w-full ${
         isDark ? "bg-dark text-light" : "bg-light text-dark"
-      }`}
+      } ${flip ? "grid-cols-[170px_1fr] sm:grid-cols-[220px_1fr]" : "grid-cols-[1fr_170px] sm:grid-cols-[1fr_220px]"}`}
     >
+      {/* IMAGE */}
       {flip && (
-        <div className="flex justify-start items-center pl-1 desktop:pl-6 tablet:pl-4 h-full">
+        <div className="w-[170px] sm:w-[220px] h-[170px] sm:h-[220px] shrink-0">
           <Image
             src={image}
-            width={170}
-            height={170}
+            width={220}
+            height={220}
             alt={alt}
-            className="w-image desktop:w-image tablet:w-image h-image desktop:h-image tablet:h-image object-cover"
+            className="w-full h-full object-cover"
+            sizes="(min-width: 768px) 220px, 170px"
           />
         </div>
       )}
 
+      {/* TEXT */}
       <div
-        className={`flex flex-1 items-center${!flip ? " pl-4 md:pl-12 lg:pl-24 tablet:pl-6 desktop:pl-8" : " pr-4 md:pr-12 lg:pr-24 tablet:pr-6 desktop:pr-8"}`}
+        className={`px-6 text-sm sm:text-lg md:text-2xl font-inconsolata leading-tight ${flip ? "text-left" : "text-right"} `}
       >
-        <div className="max-w-[200px] desktop:max-w-[400px] tablet:max-w-[300px] font-inconsolata text-body desktop:text-body tablet:text-body leading-[1.2em]">
-          {children}
-        </div>
+        {children}
       </div>
 
+      {/* IMAGE */}
       {!flip && (
-        <div className="flex justify-end items-center pr-1 desktop:pr-6 tablet:pr-4 w-image desktop:w-image tablet:w-image h-full">
+        <div className="w-[170px] sm:w-[220px] h-[170px] sm:h-[220px] shrink-0">
           <Image
             src={image}
-            width={170}
-            height={170}
+            width={220}
+            height={220}
             alt={alt}
-            className="w-image desktop:w-image tablet:w-image h-image desktop:h-image tablet:h-image object-cover"
+            className="w-full h-full object-cover"
+            sizes="(min-width: 768px) 220px, 170px"
           />
         </div>
       )}
