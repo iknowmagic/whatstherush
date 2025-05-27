@@ -17,5 +17,7 @@
 @layer base {
   body {
     min-width: 320px;
+    max-width: 1100px;
+    margin: 0 auto;
   }
 }
