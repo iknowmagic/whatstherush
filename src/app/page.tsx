@@ -53,8 +53,6 @@ const Home: React.FC = () => {
           Rivers.
           <br />
           Hands.
-          <br />
-          You don&rsquo;t get that by hurrying.
         </SectionBlock>
         <SectionBlock image={tortoiseImg} alt="Tortoise" flip>
           the road
@@ -62,8 +60,6 @@ const Home: React.FC = () => {
           was the point
           <br />
           the whole time
-          <br />
-          the scenery is better this way
         </SectionBlock>
         <SectionBlock image={lionImg} alt="Lion">
           dust in the fur
