@@ -14,7 +14,7 @@ const Stanzas: React.FC = () => {
           alt={section.alt}
           flip={section.flip}
         >
-          {section.text_lines.map((line, index) => (
+          {section.lines.map((line, index) => (
             <React.Fragment key={index}>
               {line}
               <br />
