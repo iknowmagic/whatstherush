@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import SectionBlock from "@/components/SectionBlock";
 import { stanzas } from "@/data/stanzas";
@@ -11,7 +9,7 @@ const Stanzas: React.FC = () => {
         <SectionBlock
           key={section.id}
           image={section.image}
-          alt={section.alt}
+          alt={section.theme}
           flip={section.flip}
         >
           {section.lines.map((line, index) => (
