@@ -39,7 +39,7 @@ export const stanzaGroups = [
         theme: "lion",
       },
       {
-        lines: ["I could do everything.", "But I don&rsquo;t."],
+        lines: ["I could do everything.", "But I don't."],
         theme: "octopus",
       },
       {
@@ -53,8 +53,8 @@ export const stanzaGroups = [
       },
       {
         lines: [
-          "I didn&rsquo;t know where I was going",
-          "but I wasn&rsquo;t alone",
+          "I didn't know where I was going",
+          "but I wasn't alone",
           "and that felt like direction",
         ],
         theme: "birds",
