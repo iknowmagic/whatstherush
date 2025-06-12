@@ -53,7 +53,7 @@ export const stanzaGroups = [
       },
       {
         lines: [
-          "I didn&rsquo;t know where I was going",
+          "I didn't know where I was going",
           "but I wasn't alone",
           "and that felt like direction",
         ],
